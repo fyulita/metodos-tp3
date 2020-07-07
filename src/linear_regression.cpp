@@ -8,17 +8,14 @@
 using namespace std;
 namespace py=pybind11;
 
-LinearRegression::LinearRegression()
-{
+LinearRegression::LinearRegression() {
 }
 
-void LinearRegression::fit(Matrix X, Matrix y)
-{
+void LinearRegression::fit(Matrix X, Matrix y) {
 }
 
 
-Matrix LinearRegression::predict(Matrix X)
-{
+Matrix LinearRegression::predict(Matrix X) {
     auto ret = MatrixXd::Zero(X.rows(), 1);
 
     return ret;

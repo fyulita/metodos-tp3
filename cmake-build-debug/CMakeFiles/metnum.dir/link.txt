@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -Wall -g3 -O0 -Werror -g  -shared  -o metnum.cpython-38-x86_64-linux-gnu.so CMakeFiles/metnum.dir/src/metnum.cpp.o CMakeFiles/metnum.dir/src/linear_regression.cpp.o 

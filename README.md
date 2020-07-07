@@ -1,6 +1,12 @@
 # Metros Cuadrados Mínimos Lineales: TP3 de Métodos Numéricos
 ## 2020, 1er cuatrimestre
 
+### Integrantes
+
+- Justo López Menardi (juslopezm@gmail.com)
+- Matías Strobl (matias.strobl@gmail.com)
+- Federico Yulita (fyulita@dc.uba.ar)
+
 ## Instrucciones
 
 
