@@ -41,3 +41,22 @@ Matrix LinearRegression::predict(Vector x) {
 
     //return ret;
 }
+
+
+
+void LinearRegression::fit2(Matrix X, Vector y) {
+    Matrix XNew = Matrix(X.rows(), X.cols() + 1);    //Asumiendo que X es una matriz
+    
+    Vector ones(n);
+    ones.fill((double)1); 
+    X.col(0) = ones;
+
+    for(int i = 0;i<X.cols(),i++){
+        XNew.col(i+1) = X.col(i);
+    }
+    
+
+    x = XNew.transpose()*XNew  //x la matriz de la parte privada.
+}
+
+
