@@ -11,12 +11,33 @@ namespace py=pybind11;
 LinearRegression::LinearRegression() {
 }
 
-void LinearRegression::fit(Matrix X, Matrix y) {
+void LinearRegression::fit(Vector x, Vector y) {
+    int n = x.size();
+
+    Vector ones(n);
+    ones.fill((double)1);
+
+    Matrix X(n, 2);
+    X.col(0) = x;
+    X.col(1) = ones;
+
+    Matrix X_new = X.transpose() * X;
+    Vector y_new = X.transpose() * y;
+
+    Vector coeffs = X_new.inverse() * y_new;
+
+    this-> alpha = coeffs;
 }
 
+Matrix LinearRegression::predict(Vector x) {
+    Vector y(x.size());
+    for (unsigned int i = 0; i < x.size(); i++) {
+        y(i) = alpha(0) * x(i) + alpha(1);
+    }
 
-Matrix LinearRegression::predict(Matrix X) {
-    auto ret = MatrixXd::Zero(X.rows(), 1);
+    return y;
 
-    return ret;
+    //auto ret = MatrixXd::Zero(X.rows(), 1);
+
+    //return ret;
 }

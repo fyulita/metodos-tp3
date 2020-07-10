@@ -6,8 +6,9 @@ class LinearRegression {
 public:
     LinearRegression();
 
-    void fit(Matrix X, Matrix y);
+    void fit(Vector x, Vector y); // Cambie de matrices a vectores.
 
-    Matrix predict(Matrix X);
+    Matrix predict(Vector X); // Cambie de matriz a vector.
 private:
+    Vector alpha;
 };

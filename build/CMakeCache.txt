@@ -193,7 +193,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=tp2
+CMAKE_PROJECT_NAME:STATIC=tp3
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -283,10 +283,10 @@ pybind11_BINARY_DIR:STATIC=/home/fyulita/Documents/UBA/2020-1C/Metodos Numericos
 pybind11_SOURCE_DIR:STATIC=/home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/pybind11
 
 //Value Computed by CMake
-tp2_BINARY_DIR:STATIC=/home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/build
+tp3_BINARY_DIR:STATIC=/home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/build
 
 //Value Computed by CMake
-tp2_SOURCE_DIR:STATIC=/home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03
+tp3_SOURCE_DIR:STATIC=/home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03
 
 
 ########################
