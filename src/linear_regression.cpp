@@ -28,7 +28,7 @@ void LinearRegression::fit(Matrix X, Matrix y) {
     }
 
     Matrix XTX = XNew.transpose() * XNew;
-    Vector XTy = XNew.transpose() * y;
+    Matrix XTy = XNew.transpose() * y;
 
     alpha = XTX.inverse() * XTy;
 }
