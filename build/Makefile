@@ -100,6 +100,17 @@ install/local/fast: preinstall/fast
 	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -132,17 +143,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -177,6 +177,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named tp3
+
+# Build rule for target.
+tp3: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tp3
+.PHONY : tp3
+
+# fast build rule for target.
+tp3/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/build
+.PHONY : tp3/fast
+
+#=============================================================================
 # Target rules for targets named metnum
 
 # Build rule for target.
@@ -195,6 +208,7 @@ src/linear_regression.o: src/linear_regression.cpp.o
 
 # target to build an object file
 src/linear_regression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/linear_regression.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/metnum.dir/build.make CMakeFiles/metnum.dir/src/linear_regression.cpp.o
 .PHONY : src/linear_regression.cpp.o
 
@@ -204,6 +218,7 @@ src/linear_regression.i: src/linear_regression.cpp.i
 
 # target to preprocess a source file
 src/linear_regression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/linear_regression.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/metnum.dir/build.make CMakeFiles/metnum.dir/src/linear_regression.cpp.i
 .PHONY : src/linear_regression.cpp.i
 
@@ -213,8 +228,36 @@ src/linear_regression.s: src/linear_regression.cpp.s
 
 # target to generate assembly for a file
 src/linear_regression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/linear_regression.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/metnum.dir/build.make CMakeFiles/metnum.dir/src/linear_regression.cpp.s
 .PHONY : src/linear_regression.cpp.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 src/metnum.o: src/metnum.cpp.o
 
@@ -256,9 +299,13 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... metnum"
+	@echo "... tp3"
 	@echo "... src/linear_regression.o"
 	@echo "... src/linear_regression.i"
 	@echo "... src/linear_regression.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 	@echo "... src/metnum.o"
 	@echo "... src/metnum.i"
 	@echo "... src/metnum.s"

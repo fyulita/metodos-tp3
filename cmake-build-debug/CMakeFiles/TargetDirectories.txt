@@ -1,8 +1,9 @@
 /home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/cmake-build-debug/CMakeFiles/install/strip.dir
 /home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/cmake-build-debug/CMakeFiles/install/local.dir
-/home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/cmake-build-debug/CMakeFiles/metnum.dir
 /home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/cmake-build-debug/CMakeFiles/install.dir
 /home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/cmake-build-debug/CMakeFiles/list_install_components.dir
+/home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/cmake-build-debug/CMakeFiles/metnum.dir
+/home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/cmake-build-debug/CMakeFiles/tp3.dir
 /home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /home/fyulita/Documents/UBA/2020-1C/Metodos Numericos/Material/Laboratorio/tp03/cmake-build-debug/pybind11/CMakeFiles/install/strip.dir

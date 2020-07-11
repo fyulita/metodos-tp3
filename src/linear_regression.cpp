@@ -1,62 +1,52 @@
-#include <algorithm>
+// #include <algorithm>
 //#include <chrono>
-#include <pybind11/pybind11.h>
-#include <iostream>
-#include <exception>
+// #include <pybind11/pybind11.h>
+// #include <iostream>
+// #include <exception>
 #include "linear_regression.h"
 
 using namespace std;
-namespace py=pybind11;
+// namespace py=pybind11;
 
 LinearRegression::LinearRegression() {
-}
-
-void LinearRegression::fit(Vector x, Vector y) {
-    int n = x.size();
-
-    Vector ones(n);
-    ones.fill((double)1);
-
-    Matrix X(n, 2);
-    X.col(0) = x;
-    X.col(1) = ones;
-
-    Matrix X_new = X.transpose() * X;
-    Vector y_new = X.transpose() * y;
-
-    Vector coeffs = X_new.inverse() * y_new;
-
+    Matrix coeffs;
     this-> alpha = coeffs;
 }
 
-Matrix LinearRegression::predict(Vector x) {
-    Vector y(x.size());
-    for (unsigned int i = 0; i < x.size(); i++) {
-        y(i) = alpha(0) * x(i) + alpha(1);
-    }
+void LinearRegression::fit(Matrix X, Matrix y) {
+    unsigned int n = X.rows();
+    unsigned int m = X.cols();
 
-    return y;
+    Matrix XNew(n, m + 1);
 
-    //auto ret = MatrixXd::Zero(X.rows(), 1);
-
-    //return ret;
-}
-
-
-
-void LinearRegression::fit2(Matrix X, Vector y) {
-    Matrix XNew = Matrix(X.rows(), X.cols() + 1);    //Asumiendo que X es una matriz
-    
     Vector ones(n);
-    ones.fill((double)1); 
-    X.col(0) = ones;
+    ones.fill((double)1);
+    XNew.col(0) = ones;
 
-    for(int i = 0;i<X.cols(),i++){
-        XNew.col(i+1) = X.col(i);
+    for(unsigned int i = 0; i < m; i++) {
+        XNew.col(i + 1) = X.col(i);
     }
-    
 
-    x = XNew.transpose()*XNew  //x la matriz de la parte privada.
+    Matrix XTX = XNew.transpose() * XNew;
+    Vector XTy = XNew.transpose() * y;
+
+    alpha = XTX.inverse() * XTy;
 }
 
+Matrix LinearRegression::predict(Matrix X) {
+    unsigned int n = X.rows();
+    unsigned int m = X.cols();
 
+    Matrix XNew(n, m + 1);
+
+    Vector ones(n);
+    ones.fill((double)1);
+    XNew.col(0) = ones;
+
+    for(unsigned int i = 0; i < m; i++) {
+        XNew.col(i + 1) = X.col(i);
+    }
+
+    Matrix y = XNew * alpha;
+    return y;
+}

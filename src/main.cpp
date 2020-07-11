@@ -1,10 +1,8 @@
 #include <iostream>
-#include "pca.h"
-#include "eigen.h"
+#include "linear_regression.h"
 
 int main(int argc, char** argv) {
+    std::cout << "Running!" << std::endl;
 
-  std::cout << "Hola mundo!" << std::endl;
-
-  return 0;
+    return 0;
 }

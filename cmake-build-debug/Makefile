@@ -169,6 +169,19 @@ metnum/fast:
 	$(MAKE) -f CMakeFiles/metnum.dir/build.make CMakeFiles/metnum.dir/build
 .PHONY : metnum/fast
 
+#=============================================================================
+# Target rules for targets named tp3
+
+# Build rule for target.
+tp3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tp3
+.PHONY : tp3
+
+# fast build rule for target.
+tp3/fast:
+	$(MAKE) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/build
+.PHONY : tp3/fast
+
 src/linear_regression.o: src/linear_regression.cpp.o
 
 .PHONY : src/linear_regression.o
@@ -176,6 +189,7 @@ src/linear_regression.o: src/linear_regression.cpp.o
 # target to build an object file
 src/linear_regression.cpp.o:
 	$(MAKE) -f CMakeFiles/metnum.dir/build.make CMakeFiles/metnum.dir/src/linear_regression.cpp.o
+	$(MAKE) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/linear_regression.cpp.o
 .PHONY : src/linear_regression.cpp.o
 
 src/linear_regression.i: src/linear_regression.cpp.i
@@ -185,6 +199,7 @@ src/linear_regression.i: src/linear_regression.cpp.i
 # target to preprocess a source file
 src/linear_regression.cpp.i:
 	$(MAKE) -f CMakeFiles/metnum.dir/build.make CMakeFiles/metnum.dir/src/linear_regression.cpp.i
+	$(MAKE) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/linear_regression.cpp.i
 .PHONY : src/linear_regression.cpp.i
 
 src/linear_regression.s: src/linear_regression.cpp.s
@@ -194,7 +209,35 @@ src/linear_regression.s: src/linear_regression.cpp.s
 # target to generate assembly for a file
 src/linear_regression.cpp.s:
 	$(MAKE) -f CMakeFiles/metnum.dir/build.make CMakeFiles/metnum.dir/src/linear_regression.cpp.s
+	$(MAKE) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/linear_regression.cpp.s
 .PHONY : src/linear_regression.cpp.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/tp3.dir/build.make CMakeFiles/tp3.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 src/metnum.o: src/metnum.cpp.o
 
@@ -231,14 +274,18 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... metnum"
 	@echo "... install"
 	@echo "... list_install_components"
+	@echo "... metnum"
+	@echo "... tp3"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... src/linear_regression.o"
 	@echo "... src/linear_regression.i"
 	@echo "... src/linear_regression.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 	@echo "... src/metnum.o"
 	@echo "... src/metnum.i"
 	@echo "... src/metnum.s"
