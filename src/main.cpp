@@ -47,7 +47,7 @@ int main(int argc, char** argv) {
 					    }
 					    slotsTrain = line.substr(endSlot + 2);
 					} else {
-    					string curSlotTrain = slotsTrain.substr(0, endSlot);  //ponemos al slot en curslot
+    				    curSlotTrain = slotsTrain.substr(0, endSlot);  //ponemos al slot en curslot
     					slotsTrain = slotsTrain.substr(endSlot + 2);
 					}
 
@@ -117,7 +117,7 @@ int main(int argc, char** argv) {
 					    }
 					    slotsTest = line.substr(endSlotTest + 2);
 					} else {
-    					string curSlotTest = slotsTest.substr(0, endSlotTest);
+    				    curSlotTest = slotsTest.substr(0, endSlotTest);
     					slotsTest = slotsTest.substr(endSlotTest + 2);
 					}
 
