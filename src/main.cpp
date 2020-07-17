@@ -57,16 +57,17 @@ int main(int argc, char** argv) {
                     curSlotTrain = slotsTrain.substr(0, endSlot);  //ponemos en curSlot el slot
                     slotsTrain = slotsTrain.substr(endSlot + 1);  
                 }
-                curLineTrain[i] = curSlotTrain;
+                curLineTrain[i] = curSlotTrain;  //cargamos el dato de la i-esima fila en la iesima posicion del vector
             }
 
-            trains.push_back(curLineTrain);
+            trains.push_back(curLineTrain); //cargamos la linea en el vector de vectores de string train
         }
     }
 
     file.close();
 
-    Matrix trainMatrix = Matrix(trains.size(), 16); //16 son los topicos que nos interesan
+    Matrix trainMatrix = Matrix(trains.size(), 16); 
+    //creamos la matriz con los topicos que nos interesan (numericos)
     for (unsigned int i = 0; i < trains.size(); ++i) {
  	   unsigned int j = 0;
    		for (unsigned int k = 7; k < trains[i].size(); k++) {
@@ -138,6 +139,7 @@ int main(int argc, char** argv) {
     file.close();
 
     Matrix XTest = Matrix(tests.size(), 15);
+    //Creamos la matriz con las columnas qus nos interesan (numericos)
     for (unsigned int i = 0; i < tests.size(); i++) {
         unsigned int j = 0;
    		for (unsigned int k = 7; k < tests[i].size(); k++) {
@@ -152,18 +154,18 @@ int main(int argc, char** argv) {
     }
 
     Matrix trainMatrixAux = trainMatrix;
-    trainMatrixAux.conservativeResize(trainMatrixAux.rows(),trainMatrixAux.cols()-1);
-    Matrix XTrain = trainMatrixAux;
+    trainMatrixAux.conservativeResize(trainMatrixAux.rows(),trainMatrixAux.cols()-1); 
+    Matrix XTrain = trainMatrixAux; //XTrain sera como trainMatrix pero sin la columna de precio
     Matrix xTrain = XTrain;
-    xTrain.conservativeResize(xTrain.rows(), 2);
     Matrix yTrain = trainMatrix.col(trainMatrix.cols()-1); //precio
+   // xTrain.conservativeResize(xTrain.rows(), aqui ponemos las caracteristicas)
  
     Matrix xTest = XTrain;
     xTest.conservativeResize(xTest.rows(), 2);
 
     LinearRegression lr = LinearRegression();
-    lr.fit(xTrain, yTrain);
-    Vector y = lr.predict(xTest);
+    lr.fit(xTrain, yTrain);             //se entrena
+    Vector y = lr.predict(xTest);  //se predice  
 
    return 0;
 }
