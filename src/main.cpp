@@ -151,7 +151,9 @@ int main(int argc, char** argv) {
 		}
     }
 
-    Matrix XTrain = trainMatrix.conservativeResize(trainMatrix.rows(),trainMatrix.cols()-1);
+    Matrix trainMatrixAux = trainMatrix;
+    trainMatrixAux.conservativeResize(trainMatrixAux.rows(),trainMatrixAux.cols()-1);
+    Matrix XTrain = trainMatrixAux;
     Matrix xTrain = XTrain;
     xTrain.conservativeResize(xTrain.rows(), 2);
     Matrix yTrain = trainMatrix.col(trainMatrix.cols()-1); //precio
