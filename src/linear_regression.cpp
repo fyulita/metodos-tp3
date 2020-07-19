@@ -1,12 +1,6 @@
-// #include <algorithm>
-//#include <chrono>
-// #include <pybind11/pybind11.h>
-// #include <iostream>
-// #include <exception>
 #include "linear_regression.h"
 
 using namespace std;
-// namespace py=pybind11;
 
 LinearRegression::LinearRegression() {
     Matrix coeffs;

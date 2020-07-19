@@ -1,4 +1,3 @@
-#include <iostream>
 #include "linear_regression.h"
 #include <string>
 #include <vector>
