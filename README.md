@@ -5,6 +5,7 @@
 
 - Justo López Menardi (juslopezm@gmail.com)
 - Matías Strobl (matias.strobl@gmail.com)
+- Tomás Wehner (tomi.wehner10@gmail.com)
 - Federico Yulita (fyulita@dc.uba.ar)
 
 ## Instrucciones
@@ -37,7 +38,28 @@ gunzip data/train.csv.gz
 gunzip data/test.csv.gz
 ```
 
-Listo! Ya se puede disfrutar del TP3
+Listo! Ya se puede disfrutar del TP3.
+
+## Compilación
+
+Ejecutar la primera celda del notebook o seguir los siguientes pasos:
+
+- Compilar el código C++ en un módulo de Python
+
+```
+mkdir build
+cd build
+rm -rf *
+cmake -DPYTHON_EXECUTABLE="$(which python)" -DCMAKE_BUILD_TYPE=Release ..
+```
+
+- Al ejecutar el siguiente comando se compila e instala la librería en el directorio `notebooks`
+
+```
+make install
+```
+
+## Carpetas
 
 ### Datos
 
@@ -58,21 +80,6 @@ cd notebooks
 jupyter notebook
 ```
 
-## Compilación
+### Código
 
-Ejecutar la primera celda del notebook o seguir los siguientes pasos:
-
-- Compilar el código C++ en un módulo de Python
-
-```
-mkdir build
-cd build
-rm -rf *
-cmake -DPYTHON_EXECUTABLE="$(which python)" -DCMAKE_BUILD_TYPE=Release ..
-```
-
-- Al ejecutar el siguiente comando se compila e instala la librería en el directorio `notebooks`
-
-```
-make install
-```
+En `src/` se encuentra el código de implementación de los algoritmos en C++.
